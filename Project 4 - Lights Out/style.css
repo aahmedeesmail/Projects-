@@ -1,0 +1,270 @@
+:root {
+    --board-bg: #1e2b38;
+    --light-off-bg: #34495e;
+    --light-on-bg: #f1c40f;
+    --text-light: #ecf0f1;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: var(--text-light);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    
+    /* Background Image Implementation */
+    background-image: url(img/background.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+h1 {
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Optional: Adding a dark overlay to make text more readable */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Darkens the image slightly */
+    z-index: -1;
+}
+
+/* Stats Container Styles */
+#stats-container {
+    display: flex;
+    gap: 2rem;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    /* Optional: making it look a bit sharper against the background */
+    background: rgba(0, 0, 0, 0.2);
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+}
+
+/* Game Board Container Styles */
+#game-board {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+    background-color: var(--board-bg);
+    padding: 10px;
+    border-radius: 8px;
+    border: 3px solid black;
+    
+    /* Ensuring the board has a consistent size */
+    width: fit-content;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.cell {
+    width: 60px;
+    height: 60px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    cursor: pointer;
+    user-select: none;
+    /* Combined transitions from both blocks */
+    transition: background-color 0.5s ease, transform 0.2s ease, box-shadow 0.5s ease;
+}
+
+.cell:active {
+    transform: scale(0.95);
+}
+
+.light-off {
+    background-color: var(--light-off-bg);
+}
+
+.light-on {
+    background-color: var(--light-on-bg);
+    box-shadow: 0 0 15px var(--light-on-bg);
+}
+
+/* Modal Overlay: Covers the entire screen */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Darkens the background */
+    display: none; /* Hidden by default */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* The actual white box */
+.modal-content {
+    background-color: #ecf0f1;
+    color: #2c3e50;
+    padding: 2.5rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    max-width: 400px;
+    width: 90%;
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    font-size: 2rem;
+}
+
+.modal-content p {
+    font-size: 1.2rem;
+    margin: 1.5rem 0;
+}
+
+/* Bold the numbers like in your image */
+#final-moves, #final-time {
+    font-weight: bold;
+}
+
+/* The Blue Play Again Button */
+#play-again-btn {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#play-again-btn:hover {
+    background-color: #2980b9;
+}
+
+.controls {
+    margin-top: 20px; /* Space between board and button */
+    display: flex;
+    justify-content: center;
+}
+
+#restart-btn {
+    background-color: #e74c3c; /* Red color from the image */
+    color: rgb(255, 255, 255);
+    border: none;
+    padding: 12px 40px;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+#restart-btn:hover {
+    background-color: #c0392b; /* Darker red on hover */
+}
+
+#restart-btn:active {
+    transform: scale(0.95); /* Little click effect */
+}
+
+/* Update the controls container to handle two buttons */
+.controls {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Adds space between Hint and Restart */
+}
+
+#hint-btn {
+    background-color: #3498db; /* Blue color */
+    color: white;
+    border: none;
+    padding: 12px 40px;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+#hint-btn:hover {
+    background-color: #2980b9;
+}
+
+#hint-btn:active {
+    transform: scale(0.95);
+}
+
+/* Specific styling for the Hint Modal content */
+.hint-content {
+    background-color: #f0f3f4; /* Slightly different grey-white */
+    max-width: 500px; /* Slightly wider to fit the code */
+}
+
+.hint-content p {
+    font-size: 1rem;
+    margin: 0.8rem 0;
+    line-height: 1.4;
+}
+
+.hint-code {
+    background: #ffffff;
+    padding: 10px;
+    border-radius: 8px;
+    font-family: monospace;
+    font-size: 1.2rem;
+    display: inline-block;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+}
+
+#close-hint-btn {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 40px;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#close-hint-btn:hover {
+    background-color: #2980b9;
+}
+
+/* Add this class temporarily to test, then remove it! */
+.show {
+       display: flex !important;
+}
+
+/* The Animation Definition */
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+        transform: scale(0.8); 
+    }
+    to { 
+        opacity: 1; 
+        transform: scale(1); 
+    }
+}
+
+/* 
+   Applying the animation:
+   When the 'show' class is added to the overlay, 
+   the content box inside will animate! 
+*/
+.modal-overlay.show .modal-content {
+    animation: fadeIn 0.5s ease-out;
+}

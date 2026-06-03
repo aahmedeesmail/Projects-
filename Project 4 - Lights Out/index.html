@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lights Out</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body style="text-align: center;">
+
+    <div class="game-container">
+        <h1>Lights Out</h1>
+
+        <!-- Stats Section -->
+        <div id="stats-container">
+            <div class="stat-box">
+                <span class="label">Moves:</span>
+                <span id="move-count">0</span>
+            </div>
+            <div class="stat-box">
+                <span class="label">Time:</span>
+                <span id="time-elapsed">00:00</span>
+            </div>
+        </div>
+
+        <!-- Game Board -->
+        <div id="game-board">
+            <!-- Placeholders: We will remove these once app.js handles the generation -->
+            <div class="cell on">💡</div>
+            <div class="cell off"></div>
+        </div>
+        <div class="controls">
+            <button id="hint-btn">Hint</button>
+            <button id="restart-btn">Restart</button>
+        </div>
+        </div>
+
+    <div id="win-modal" class="modal-overlay">
+    <div class="modal-content">
+        <h2>🏆 You Won! 🏆</h2>
+        <p>You solved the puzzle in <span id="final-moves">0</span> moves and <span id="final-time">0s</span>.</p>
+        <button id="play-again-btn">Play Again</button>
+    </div>
+    </div>
+
+    <!-- Hint Modal -->
+<div id="hint-modal" class="modal-overlay">
+    <div class="modal-content hint-content">
+        <h2>⭐ Hints ⭐</h2>
+        <p>Start with the <strong>second</strong> row.</p>
+        <p>Click on every cell that has a light on in the row <strong>above</strong> it. 
+           Continue until the only remaining lights are in the <strong>final</strong> row.</p>
+        
+        <p>See which lights are at the <strong>bottom</strong> row and click in the <strong>first</strong> row:</p>
+        
+        <div class="hint-code">
+            <p>
+                ⬛⬛🟨🟨🟨 👉 ⬛⬛⬛🟩⬛<br>
+                ⬛🟨⬛🟨⬛ 👉 ⬛🟩⬛⬛🟩<br>
+                ⬛🟨🟨⬛🟨 👉 🟩⬛⬛⬛⬛<br>
+                🟨⬛⬛⬛🟨 👉 ⬛⬛⬛🟩🟩<br>
+                🟨⬛🟨🟨⬛ 👉 ⬛⬛⬛⬛🟩<br>
+                🟨🟨⬛🟨🟨 👉 ⬛⬛🟩⬛⬛<br>
+                🟨🟨🟨⬛⬛ 👉 ⬛🟩⬛⬛⬛
+            </p>
+        </div>
+
+        <p>Repeat the steps from the <strong>second</strong> row!</p>
+        <button id="close-hint-btn">Close</button>
+    </div>
+</div>
+
+    <script src="app.js"></script>
+</body>
+</html>
