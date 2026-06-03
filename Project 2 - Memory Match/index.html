@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Catch</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Memory Catch</h1>
+
+    <div class="stats">
+        <div class="stat-item">Pairs Found: <span id="score-count">0</span></div>
+        <div class="stat-item">Time Left: <span id="time-left">60</span>s</div>
+    </div>
+
+   <div class="game-board-border">
+    <div class="game-board"></div>
+</div>
+<!-- Start Game Modal -->
+<div id="start-modal" class="modal show">
+    <div class="modal-content">
+        <h2>🧠 Welcome to Memory Match! 👁️</h2>
+        
+        <p>
+            Find as many matching pairs as you can in <b>60</b> seconds.<br>
+            Good luck!
+        </p>
+
+        <p>
+            High Score: <span id="high-score-start">0</span>
+        </p>
+
+        <button id="start-game-btn">Start Game</button>
+    </div>
+</div>
+<!-- End Game Modal -->
+<div id="end-modal" class="modal-container">
+    <div class="modal-content">
+        <h2>Time's Up! ⏱️</h2>
+        
+        <p>
+            You have found <span id="final-score">0</span> pairs!
+        </p>
+
+        <p>
+            <b>High Score: <span id="high-score-end">0</span></b>
+        </p>
+
+        <button id="play-again-btn">Play Again</button>
+    </div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
