@@ -1,0 +1,213 @@
+body {
+    font-family: Arial, sans-serif;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+
+    background-image: url("https://kidocode-asset.s3-ap-southeast-1.amazonaws.com/hoc/assets/courses/1ced0a271b.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%
+}
+
+.game-container{
+    background-color: white;
+    padding: 2rem;
+    border-radius: 4px solid #aaa;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 90%;
+    max-width: 700px;
+}
+
+.word-display {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 2rem;
+}
+
+.letter-container {
+    width: 40px;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.letter {
+    font-size: 2.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 1;
+    opacity: 0;
+    transform: scale(1.5);
+}
+
+.letter-container.revealed .letter {
+    animation: fadeInScale 0.5s forwards;
+}
+
+@keyframes fadeInScale {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+.underline {
+    width: 100%;
+    height: 3px;
+    background-color: #4a4e69;
+}
+
+.game-info {
+    margin-bottom: 2rem;
+}
+
+.theme-text {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #4a4e69;
+    margin-bottom: 1rem;
+}
+
+.hearts-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 1rem;
+}
+
+.heart {
+    font-size: 1.5rem;
+    color: #e5383b;
+    transition: color 0.3s ease;
+}
+
+.heart.grey {
+    color: #ccc;
+}
+
+.keyboard {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 1.5rem;
+    bottom: hint-btn;
+}
+
+.keyboard button {
+    width: 45px;
+    height: 45px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background-color: #6a7fdb;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+}
+
+.keyboard button:hover {
+    background-color: #4a5a9c;
+}
+
+.keyboard button:disabled {
+    background-color: #999;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* --- MODAL STYLES --- */
+
+.modal-container {
+    display: none; /* Hidden by default! JavaScript will show it later */
+    position: fixed; /* Stays in place even if you scroll */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+    align-items: center;
+    justify-content: center;
+    z-index: 1000; /* Ensures it sits on top of all other game elements */
+}
+
+.modal-content {
+    background-color: white;
+    color: #333; /* Dark text since the background is white */
+    padding: 3rem;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    max-width: 400px;
+    width: 80%;
+}
+
+#modal-title {
+    margin-top: 0;
+    color: #4a4e69; /* Matches your theme text color */
+    font-size: 2.5rem;
+}
+
+#modal-message {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    font-weight: bold;
+}
+
+#play-again-btn {
+    background-color: #6a7fdb; /* Matches your keyboard buttons */
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#play-again-btn:hover {
+    background-color: #4a5a9c;
+}
+
+.modal-container.show {
+    display: flex;
+}
+
+#hint-btn {
+    padding: 10px 25px;
+    font-size: 1.1rem;
+    background-color: rgb(34, 127, 209);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 20px; /* Added for spacing */
+}
+
+#hint-btn:hover {
+    background-color: rgb(86, 152, 210);
+}
+
+#hint-btn:disabled {
+    background-color: #ccc;
+    color: #888;
+    cursor: not-allowed;
+}
+
+.letter.hint-revealed {
+    color: rgb(34, 127, 209) !important;
+}
