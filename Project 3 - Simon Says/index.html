@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simon Says - Musical Edition</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="game-info">
+        <h1>Simon Says</h1>
+        <p>Level: <span id="level-display">0</span></p>
+    </div>
+
+    <div class="game-container">
+        <button id="green" class="simon-button">🎹</button>
+        <button id="red" class="simon-button">🎸</button>
+        <button id="yellow" class="simon-button">🎺</button>
+        <button id="blue" class="simon-button">🥁</button>
+    </div>
+
+    <div class="modal-container show" id="menu-modal">
+        <div class="modal-content">
+            
+            <h2 id="modal-title">Welcome to Simon Says!</h2>
+            
+            <p id="modal-message">Press Start to begin.</p>
+            
+            <div class="high-scores">
+                <p><b>Highest Reached Level:</b></p>
+                <p>Normal Mode: <span id="high-score-normal">0</span></p>
+                <p>Hard Mode: <span id="high-score-hard">0</span></p>
+            </div>
+
+            <div class="modal-buttons">
+                <button id="play-normal-btn" class="btn-blue">Play Normal</button>
+                <button id="play-hard-btn" class="btn-red">Play Hard</button>
+            </div>
+
+        </div>
+    </div>
+
+    <p id="success-message" class="hidden">Nice!</p> 
+
+    <script src="app.js"></script>
+</body>
+</html>
