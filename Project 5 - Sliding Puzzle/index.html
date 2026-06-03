@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sliding Puzzle Game</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Sliding Puzzle Game</h1>
+
+    <div class="stats-container">
+        <p>Moves: <span id="moves">0</span></p>
+        <p>Time: <span id="time">0</span></p>
+    </div>
+
+    <div class="game-container">
+        <div class="game-board"></div>
+    </div>
+
+    <div id="win-modal" class="modal hidden">
+    <div class="modal-content">
+        <h2>You Won! 🎉</h2>
+        <img id="solved-preview" class="solved-puzzle-preview" src="" alt="Solved Puzzle">
+        <p>You solved the puzzle in <strong id="final-moves">0</strong> moves and <strong id="final-time">0</strong>s.</p>
+        <button id="play-again-btn">Play Again</button>
+    </div>
+    </div>
+    <script src="app.js"></script>
+
+</body>
+</html>
